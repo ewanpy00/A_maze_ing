@@ -1,6 +1,7 @@
 I use DFS algorithm with backtracking to generate the Maze.
 
 Parsing arguments from config.txt✅
+    * Potential update to the Parser file with more cleaner and possible validation errors that can occur *
 Generation of a basic maze(Maze.py)✅ (I guess we will rework the logic but its a good start)
 --- Should move the generation logic to the generator and add features based on the config
 --- Add solver of the maze
