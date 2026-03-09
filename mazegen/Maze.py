@@ -1,18 +1,20 @@
-from Cell import Cell
+from mazegen.Cell import Cell
 import random
 
 class Maze:
-    def __init__(self, height, width):
+    def __init__(self, height, width, ENTRY, EXIT):
         self.height = height
         self.width = width
+        self.entry_y, self.entry_x = ENTRY
+        self.exit_y, self.exit_x = EXIT
         self.maze = [[Cell(x, y) for x in range(width)] for y in range(height)]
         # Creating a double array of Cells
 
 
     # basic Maze generation function
-    def generate_maze(self, start_x, start_y):
+    def generate_maze(self, output_file, perfect):
         stack = []
-        current = self.maze[start_x][start_y]
+        current = self.maze[self.entry_y][self.entry_x]
         current.visited = True
         while True:
             neighbors = self.get_unvisited_neighbors(current)
@@ -63,28 +65,30 @@ class Maze:
     # displaying the maze
     # display only based on the east and south wall.
     def print_maze(self):
-        print("█" * (self.width * 2 + 1))
+        print("█" * (self.width * 3 + 1))
+
         for y in range(self.height):
-            print("█", end='')
+            print("█", end="")
             for x in range(self.width):
                 cell = self.maze[y][x]
-                print(" ", end='')
-                if cell.east:
-                    print("█", end='')
+                if (x, y) == (self.entry_x, self.entry_y):
+                    symbol = "🟢"
+                elif (x, y) == (self.exit_x, self.exit_y):
+                    symbol = "🔴"
                 else:
-                    print(" ", end='')
+                    symbol = "  "
+                # print(x, y)
+                print(symbol, end="")
+                if cell.east:
+                    print("█", end="")
+                else:
+                    print(" ", end="")
             print()
-            print("█", end='')
+            print("█", end="")
             for x in range(self.width):
                 cell = self.maze[y][x]
                 if cell.south:
-                    print("██", end='')
+                    print("███", end="")
                 else:
-                    print(" █", end='')
+                    print("  █", end="")
             print()
-
-
-# just for testing
-maze = Maze(20, 20)
-maze.generate_maze(3, 2)
-maze.print_maze()

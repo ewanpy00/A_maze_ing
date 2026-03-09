@@ -12,7 +12,7 @@ def _die(message: str) -> None:
     sys.exit(1)
 
 
-def parsed_args(config_file: str) -> Dict[str, str]:
+def parse_args(config_file: str) -> Dict[str, str]:
     config: Dict[str, str] = {}
 
     try:
@@ -30,6 +30,8 @@ def parsed_args(config_file: str) -> Dict[str, str]:
         _die(f"{config_file} is not found")
     except OSError as exc:
         _die(f"Cannot read config file: {exc}")
+    config = validate_config(config)
+    # print(config)
     return config
 
 
@@ -91,3 +93,5 @@ def validate_config(config: Dict[str, str]) -> bool:
         "seed": seed,
         "output_file": output_file
     }
+
+# parsed_args("config.txt")
