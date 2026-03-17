@@ -20,8 +20,6 @@ Generation of a basic maze(Maze.py)✅ (I guess we will rework the logic but its
 --- The main menu for generation ✅
 --- Modify the logic of solve maze. No it skips the cells on the Y axis ❌
 
-to check the output compile Maze file
-
 
 Majore Updates:
 1. * Potential update to the Parser file with more cleaner and possible validation errors that can occur *
