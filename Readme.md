@@ -2,7 +2,7 @@ I use DFS algorithm with backtracking to generate the Maze.
 
 Parsing arguments from config.txt✅
 Generation of a basic maze(Maze.py)✅ (I guess we will rework the logic but its a good start)
---- Should move the generation logic to the generator and add features based on the config
+--- Should move the generation logic to the generator and add features based on the config ✅
 --- Add solver of the maze
 --- Add start and exit from the maze ✅
 --- Makefile
@@ -10,6 +10,8 @@ Generation of a basic maze(Maze.py)✅ (I guess we will rework the logic but its
 --- Check the requirements I missed smth 100%
 --- Create an output file gemeration
 --- Add flake8
+--- Add 42 pattern ✅
+--- Make generation based on the seed ✅
 
 
 to check the output compile Maze file

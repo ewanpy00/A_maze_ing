@@ -6,8 +6,10 @@ def a_maze_ing():
     maze = mazegen.Maze(config["width"], 
                         config["height"], 
                         config["entry"], 
-                        config["exit"])
+                        config["exit"],
+                        1)   # pass the seed value here
     maze.generate_maze(config["output_file"], config["perfect"],)
     maze.print_maze()
+
 
 a_maze_ing()
