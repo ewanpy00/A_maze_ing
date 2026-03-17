@@ -9,6 +9,7 @@ class Maze:
         self.exit_y, self.exit_x = EXIT
         self.seed = seed
         self.maze = [[Cell(x, y) for x in range(width)] for y in range(height)]
+        self.solution_path = []
 
 
     def apply_42_pattern(self):
@@ -29,20 +30,26 @@ class Maze:
             self._lock_cell(offset_y + dy, offset_x_2 + dx)
 
     def _lock_cell(self, y, x):
-        """Блокирует ячейку, делая её монолитной стеной."""
         if 0 <= y < self.height and 0 <= x < self.width:
             cell = self.maze[y][x]
             cell.visited = True
             
 
     def generate_maze(self, output_file, perfect):
+        for row in self.maze:
+            for cell in row:
+                cell.visited = False
+                cell.north = cell.east = cell.south = cell.west = True
+        self.solution_path = []
         if self.seed is not None:
             random.seed(self.seed)    # reed about Mersenne Twister(algorithms used to generate a random number) - interesting topic
-        self.apply_42_pattern()
+        self.apply_42_pattern()ы
         stack = []
         current = self.maze[self.entry_y][self.entry_x]
         current.visited = True
         while True:
+            if (current.x, current.y) == (self.exit_x, self.exit_y) and not self.solution_path:        
+                self.solution_path = [(c.x, c.y) for c in stack] + [(current.x, current.y)]
             neighbors = self.get_unvisited_neighbors(current)
             if neighbors:
                 next_cell = random.choice(neighbors)
