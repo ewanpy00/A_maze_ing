@@ -1,5 +1,5 @@
 I use DFS algorithm with backtracking to generate the Maze.
-
+testing
 Parsing arguments from config.txt✅
 Generation of a basic maze(Maze.py)✅ (I guess we will rework the logic but its a good start)
 --- Should move the generation logic to the generator and add features based on the config ✅
