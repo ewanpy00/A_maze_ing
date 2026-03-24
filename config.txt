@@ -1,6 +1,24 @@
+# A-Maze-ing configuration file
+# Lines starting with '#' are ignored.
+#All keys are case-insensitive (internally uppercased).
+
+# Maze dimensions (number of cells)
 WIDTH=20
 HEIGHT=15
+
+# Entry and exit coordinates (zero-indexed x,y)
 ENTRY=0,0
-EXIT=19,12
+EXIT=19,14
+
+# Output file for the hex-encoded maze
 OUTPUT_FILE=maze.txt
-PERFECT=True
+
+# Perfect maze: exactly one path between entry and exit
+# change it to False to make multiple path solution
+PERFECT=False
+
+# Optional: fixed seed for reproducible mazes (comment out for random)
+SEED=42
+
+# Optional For the Bonus part animation
+ANIMATION=False
