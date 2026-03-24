@@ -14,6 +14,7 @@ class Maze:
         height: int,
         entry: Tuple[int, int],
         exit_: Tuple[int, int],
+        output_file: str,
         perfect: bool = True,
         seed: Optional[int] = None,
         animation: Optional[bool] = False,
@@ -39,6 +40,7 @@ class Maze:
     # -------------------------
     def apply_pattern(self) -> None:
         if self.width < MIN_W or self.height < MIN_H:
+            self.pattern_placed = False
             return
 
         px = (self.width - 7) // 2

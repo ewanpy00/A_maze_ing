@@ -106,6 +106,7 @@ def make_generator(params: Dict) -> MazeGenerator:
         height=params["height"],
         entry=params["entry"],
         exit_=params["exit_"],
+        output_file=params["output_file"],
         perfect=params["perfect"],
         seed=params["seed"],
         animation=params["animation"],

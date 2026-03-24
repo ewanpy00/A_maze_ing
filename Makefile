@@ -1,3 +1,5 @@
+VENV   = venv
+
 env:
 	python3 -m venv venv
 
@@ -23,7 +25,8 @@ lint:
 		--warn-unused-ignores \
 		--ignore-missing-imports \
 		--disallow-untyped-defs \
-		--check-untyped-defs
+		--check-untyped-defs \
+		--exclude $(VENV)
 
 
 build-pkg:

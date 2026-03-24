@@ -8,7 +8,7 @@ HEIGHT=15
 
 # Entry and exit coordinates (zero-indexed x,y)
 ENTRY=0,0
-EXIT=19,12
+EXIT=19,14
 
 # Output file for the hex-encoded maze
 OUTPUT_FILE=maze.txt
